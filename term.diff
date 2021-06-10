@@ -1,0 +1,15 @@
+dont care to actually fix this garbage
+
+diff --git a/config.def.h b/config.def.h
+index 6f05dce..a33c7ba 100644
+--- a/config.def.h
++++ b/config.def.h
+@@ -74,7 +74,7 @@ static unsigned int cursorthickness = 2;
+ static int bellvolume = 0;
+ 
+ /* default TERM value */
+-char *termname = "st-256color";
++char *termname = "xterm-256color";
+ 
+ /*
+  * spaces per tab

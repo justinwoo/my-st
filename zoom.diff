@@ -1,0 +1,21 @@
+originally from jonas: https://github.com/jonascarpay/nix/blob/84813c67f9cb1b4c6dccd1b73bf91a8acd6d8753/desktop/st/zoom.diff
+
+i hate ctrl shift
+
+diff --git a/config.def.h b/config.def.h
+index 3eabc86..10f39ec 100644
+--- a/config.def.h
++++ b/config.def.h
+@@ -191,8 +191,8 @@ static Shortcut shortcuts[] = {
+ 	{ ControlMask,          XK_Print,       toggleprinter,  {.i =  0} },
+ 	{ ShiftMask,            XK_Print,       printscreen,    {.i =  0} },
+ 	{ XK_ANY_MOD,           XK_Print,       printsel,       {.i =  0} },
+-	{ TERMMOD,              XK_Prior,       zoom,           {.f = +1} },
+-	{ TERMMOD,              XK_Next,        zoom,           {.f = -1} },
+-	{ TERMMOD,              XK_Home,        zoomreset,      {.f =  0} },
++	{ ControlMask,          XK_equal,       zoom,           {.f = +3} },
++	{ ControlMask,          XK_minus,       zoom,           {.f = -3} },
++	{ ControlMask,          XK_0,           zoomreset,      {.f =  0} },
+ 	{ TERMMOD,              XK_C,           clipcopy,       {.i =  0} },
+ 	{ TERMMOD,              XK_V,           clippaste,      {.i =  0} },
+ 	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
