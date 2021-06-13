@@ -10,11 +10,12 @@ let
 in
 # originally from jonas: https://github.com/justinwoo/.dotfiles/blob/b0e01cd84250475c341fbae5146404d4f3e35075/alacritty/alacritty.yml#L29
 pkgs.st.overrideAttrs (old: {
-  # TODO: find out if this acutally works
   buildInputs = old.buildInputs ++ [ pkgs.harfbuzz ];
 
   patches = old.patches ++ [
     # Scrollback
+    # note this causes the most problems with trying to apply future
+    # patches on top, requiring rebases
     (builtins.fetchurl {
       url = "https://st.suckless.org/patches/scrollback/st-scrollback-0.8.4.diff";
       sha256 = "0i0fav13sxnsydpllny26139gnzai66222502cplh18iy5fir3j1";
@@ -33,12 +34,7 @@ pkgs.st.overrideAttrs (old: {
       sha256 = "1cwidwqyg6qv68x8bsnxns2h0gy9crd5hs2z99xcd5m0q3agpmlb";
     })
 
-    # # reset some font coloring to apply solarized
-    # (builtins.fetchurl {
-    #   url = "https://st.suckless.org/patches/solarized/st-no_bold_colors-20170623-b331da5.diff";
-    #   sha256 = "0iaq3wbazpcisys8px71sgy6k12zkhvqi4z47slivqfri48j3qbi";
-    # })
-
+    ./invert.diff
     ./term.diff
     ./zoom.diff
     ./solarized-accented.diff
