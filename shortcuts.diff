@@ -1,12 +1,16 @@
-originally from jonas: https://github.com/jonascarpay/nix/blob/84813c67f9cb1b4c6dccd1b73bf91a8acd6d8753/desktop/st/zoom.diff
+i need to collect some changes to shortcuts[] here because diffs are horrible
 
-i hate ctrl shift
+zoom bindings originally from jonas: https://github.com/jonascarpay/nix/blob/84813c67f9cb1b4c6dccd1b73bf91a8acd6d8753/desktop/st/zoom.diff
+
+zoom: i hate ctrl shift
+inversion: c-X inserts terminal colors
+copyurl: c-O copies whatever url is in the buffer
 
 diff --git a/config.def.h b/config.def.h
 index 3eabc86..10f39ec 100644
 --- a/config.def.h
 +++ b/config.def.h
-@@ -191,8 +191,8 @@ static Shortcut shortcuts[] = {
+@@ -191,8 +191,10 @@ static Shortcut shortcuts[] = {
  	{ ControlMask,          XK_Print,       toggleprinter,  {.i =  0} },
  	{ ShiftMask,            XK_Print,       printscreen,    {.i =  0} },
  	{ XK_ANY_MOD,           XK_Print,       printsel,       {.i =  0} },
@@ -15,7 +19,9 @@ index 3eabc86..10f39ec 100644
 -	{ TERMMOD,              XK_Home,        zoomreset,      {.f =  0} },
 +	{ ControlMask,          XK_equal,       zoom,           {.f = +3} },
 +	{ ControlMask,          XK_minus,       zoom,           {.f = -3} },
-+	{ ControlMask,          XK_0,           zoomreset,      {.f =  0} },
++	{ ControlMask,          XK_0,           zoomreset,      {.f =  0} }, // number zero
++	{ TERMMOD,              XK_O,           copyurl,        {.i =  0} }, // letter 'o'
++	{ TERMMOD,              XK_X,           invert,         { }       },
  	{ TERMMOD,              XK_C,           clipcopy,       {.i =  0} },
  	{ TERMMOD,              XK_V,           clippaste,      {.i =  0} },
  	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },

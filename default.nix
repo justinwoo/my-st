@@ -34,10 +34,11 @@ pkgs.st.overrideAttrs (old: {
       sha256 = "1cwidwqyg6qv68x8bsnxns2h0gy9crd5hs2z99xcd5m0q3agpmlb";
     })
 
+    ./url.diff
     ./invert.diff
     ./term.diff
-    ./zoom.diff
     ./solarized-accented.diff
     ./font.diff
+    ./shortcuts.diff
   ];
 })
