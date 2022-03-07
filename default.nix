@@ -4,8 +4,8 @@ let
   jonas-nix = pkgs.fetchFromGitHub {
     owner = "jonascarpay";
     repo = "nix";
-    rev = "84813c67f9cb1b4c6dccd1b73bf91a8acd6d8753";
-    sha256 = "0vhswpq8h5v43h6cqqpl7g0agai16jxkgbjik36y3728lp8zcisy";
+    rev = "819286dffb10fc6ea301e000b7abe32422fba22f";
+    sha256 = "08qnbavsw4ipynq2y6pmn9dypijcfsd5i0s1jnwdf7vzgdq87pzw";
   };
 in
 # originally from jonas: https://github.com/justinwoo/.dotfiles/blob/b0e01cd84250475c341fbae5146404d4f3e35075/alacritty/alacritty.yml#L29
