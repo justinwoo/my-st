@@ -1,4 +1,4 @@
-{ pkgs ? import <nixpkgs> { } }:
+{ pkgs ? import ./pinned.nix { } }:
 
 let
   jonas-nix = pkgs.fetchFromGitHub {
@@ -17,13 +17,13 @@ pkgs.st.overrideAttrs (old: {
     # note this causes the most problems with trying to apply future
     # patches on top, requiring rebases
     (builtins.fetchurl {
-      url = "https://st.suckless.org/patches/scrollback/st-scrollback-0.8.4.diff";
-      sha256 = "0i0fav13sxnsydpllny26139gnzai66222502cplh18iy5fir3j1";
+      url = "https://st.suckless.org/patches/scrollback/st-scrollback-20210507-4536f46.diff";
+      sha256 = "072icbmj7my4c134d5apqw7v9q88vcrp6v6gdzf3668dzpkz9n0r";
     })
     # Shift-mousewheel scroll
     (builtins.fetchurl {
-      url = "https://st.suckless.org/patches/scrollback/st-scrollback-mouse-20191024-a2c479c.diff";
-      sha256 = "0z961sv4pxa1sxrbhalqzz2ldl7qb26qk9l11zx1hp8rh3cmi51i";
+      url = "https://st.suckless.org/patches/scrollback/st-scrollback-mouse-20220127-2c5edf2.diff";
+      sha256 = "0xjg9gyd3ag68srhs7fsjs8yp8sp2srhmjq7699i207bpz6rpb26";
     })
     # non-shift mousewheel scroll (needs previous 2)
     "${jonas-nix}/desktop/st/mousewheelincrement.diff"
